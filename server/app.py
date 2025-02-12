@@ -146,13 +146,12 @@ class Player():
                     validCellCount += 1
         return validCellCount
     
-    
+
 
 
 @app.route("/", methods=['GET'])
 def main():
-    myArray = [1, 2, 3]
-    return myArray
+    return '-1'
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)

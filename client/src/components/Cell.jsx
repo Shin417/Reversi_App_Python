@@ -1,31 +1,24 @@
 import axios from "axios";
-import { useState } from "react";
-import blank from '../assets/blank.png';
-import black from '../assets/black.png';
-import white from '../assets/white.png';
+import { useState, useEffect} from "react";
+import Piece from './Piece';
 
 export default function Cell(props) {
-  const [side, setSide] = useState();
   const [color, setColor] = useState();
+
+
 
   const getInfo = async () => {
     const response = await axios.get("http://localhost:8080/");
-    setSide(response.data)
+    setColor(response.data)
   };
 
-  const setImg = () => {
-    if(side == 1){
-        setColor(black);
-    } else if(side == -1){
-        setColor(white);
-    } else {
-        setColor(blank);
-    }
-  }
+  useEffect(() => {
+    getInfo();
+  })
 
   return (
     <div className="cell" onClick={getInfo}>
-      <h1>{side}</h1>
+      <Piece color={color}/>
     </div>
   );
 }

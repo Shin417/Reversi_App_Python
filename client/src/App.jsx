@@ -14,7 +14,7 @@ function App() {
       <section className="main-section">
         <div className="board">
           {Array.from({ length:64}).map((_,index) => (
-            <Cell></Cell>
+            <Cell key={index}></Cell>
           ))}
         </div>
       </section>
