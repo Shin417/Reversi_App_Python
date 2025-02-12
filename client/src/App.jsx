@@ -11,11 +11,13 @@ function App() {
   return (
     <>
       <Header/>
-      <div className="board">
-        {Array.from({ length:64}).map((_,index) => (
-          <Cell></Cell>
-        ))}
-      </div>
+      <section className="main-section">
+        <div className="board">
+          {Array.from({ length:64}).map((_,index) => (
+            <Cell></Cell>
+          ))}
+        </div>
+      </section>
     </>
   );
 }
