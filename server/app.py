@@ -31,7 +31,7 @@ class Board():
         return [whiteCount, blackCount]
 
 class Player():
-    validCellCount = 0
+    validCellCount = None
     def __init__(self, side):
         self.side = side
 
@@ -95,6 +95,50 @@ class Player():
         if(targetValidation(board, x, y)):
             board.board[y][y] = self.side
 
+    def flip(self, board, x, y):
+        global getFlipList
+        if getFlipList(board, x, y)[0] != 0:
+            #flip up direction
+            i = 1
+            while board.board[y + i][x] == self.side * -1:
+                board.board[y+i][x] *= -1
+                i += 1
+            #flip up right direction
+            i = 1
+            while board.board[y + i][x + i] == self.side * -1:
+                board.board[y+i][x + i] *= -1
+                i += 1
+            #flip right direction
+            i = 1
+            while board.board[y][x + i] == self.side * -1:
+                board.board[y][x + i] *= -1
+                i += 1
+            #flip down right direction
+            i = 1
+            while board.board[y - i][x + i] == self.side * -1:
+                board.board[y+i][x + i] *= -1
+                i += 1
+            #flip down direction
+            i = 1
+            while board.board[y - i][x] == self.side * -1:
+                board.board[y - i][x] *= -1
+                i += 1
+            #flip down left direction
+            i = 1
+            while board.board[y - i][x - i] == self.side * -1:
+                board.board[y+i][x + i] *= -1
+                i += 1
+            #flip left direction
+            i = 1
+            while board.board[y][x - i] == self.side * -1:
+                board.board[y][x - i] *= -1
+                i += 1
+            #flip up left direction
+            i = 1
+            while board.board[y + i][x - i] == self.side * -1:
+                board.board[y +i ][x - i] *= -1
+                i += 1
+                
 @app.route("/", method=['GET', 'POST'])
 def main():
 
