@@ -30,7 +30,6 @@ class Board():
         return [whiteCount, blackCount]
 
 class Player():
-    validCellCount = None
     def __init__(self, side):
         self.side = side
 
@@ -138,13 +137,15 @@ class Player():
                 board.board[y +i ][x - i] *= -1
                 i += 1
     
-    def countValidCell(self, board):
+    def countValidCell(board):
         global targetValidation
+        validCellCount = 0
         for i in range(len(board.board)):
             for j in range(len(board.board[i])):
                 if targetValidation(board, j, i):
-                    self.validCellCount += 1
-                
+                    validCellCount += 1
+        return validCellCount
+    
 class game():
     def __init__(self):
         
