@@ -69,6 +69,21 @@ class Player():
             i += 1
         return count
     
+    def getFlipList(board, x, y):
+        global countFlipPieces
+        flipList = []
+        flipList.append = countFlipPieces(board, x, y, 0, 1)
+        flipList.append = countFlipPieces(board, x, y, 1, 1)
+        flipList.append = countFlipPieces(board, x, y, 1, 0)
+        flipList.append = countFlipPieces(board, x, y, 1, -1)
+        flipList.append = countFlipPieces(board, x, y, 0, -1)
+        flipList.append = countFlipPieces(board, x, y, -1, -1)
+        flipList.append = countFlipPieces(board, x, y, -1, 0)
+        flipList.append = countFlipPieces(board, x, y, -1, 1)
+        return flipList
+
+    #Check if the target
+    def targetValidation():
 
 @app.route("/", method=['GET', 'POST'])
 def main():
