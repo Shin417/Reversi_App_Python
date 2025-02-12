@@ -35,8 +35,35 @@ class Player():
     def __init__(self, side):
         self.side = side
 
-    
+    """
+    Count how many pieces to be flipped next to the target place. Parameters(boardObject, targetX, targetY, checkDirectionX, checkDirectionY)
+    direX = 0 & direY = 1  ==> check up direction of the target
+    direX = 1 & direY = 1  ==> check up right direction of the target
+    direX = 1 & direY = 0  ==> check left direction of the target
+    direX = 1 & direY = -1  ==> check down right direction of the target
+    direX = 0 & direY = -1  ==> check down direction of the target
+    direX = -1 & direY = -1  ==> check down left direction of the target
+    direX = -1 & direY = 0  ==> check left direction of the target
+    direX = -1 & direY = 1  ==> check up left direction of the target
+    """
+    def xOpe(direX, a, b):
+        if(direX == 1):
+            return a + b
+        elif(direX == -1):
+            return a - b
+        
+    def yOpe(direY, a, b):
+        if(direY == 1):
+            return a + b
+        elif(direY == -1):
+            return a - b
 
+    def countFlipPieces(board, x, y, direX, direY):
+        global side
+        #opponent side value
+        oppSide = side * -1
+        #check up direction
+        
 
 
 
