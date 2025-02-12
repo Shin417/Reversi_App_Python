@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -146,12 +146,13 @@ class Player():
                     validCellCount += 1
         return validCellCount
     
-
+    
 
 
 @app.route("/", methods=['GET'])
 def main():
-    return "Hello"
+    myArray = [1, 2, 3]
+    return myArray
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
