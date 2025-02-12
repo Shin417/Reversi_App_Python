@@ -58,10 +58,10 @@ class Player():
         elif(direY == -1):
             return a - b
 
-    def countFlipPieces(board, x, y, direX, direY):
-        global side, xOpe, yOpe
+    def countFlipPieces(self, board, x, y, direX, direY):
+        global xOpe, yOpe
         #opponent side value
-        oppSide = side * -1
+        oppSide = self.side * -1
         i = 1
         count = 0
         while board.board[yOpe(direY, y, i)][xOpe(direX, x, i)] == oppSide:
@@ -89,7 +89,11 @@ class Player():
             return True
         else:
             return False
-        
+    
+    def placePiece(self, board, x, y):
+        global targetValidation
+        if(targetValidation(board, x, y)):
+            board.board[y][y] = self.side
 
 @app.route("/", method=['GET', 'POST'])
 def main():
