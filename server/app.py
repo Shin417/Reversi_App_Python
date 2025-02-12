@@ -7,26 +7,25 @@ cors = CORS(app, origins='*')
 class Board():
     def __init__(self):
         self.board = [[2,2,2,2,2,2,2,2,2,2],
-            [2,0,0,0,0,0,0,0,0,2],
-            [2,0,0,0,0,0,0,0,0,2],
-            [2,0,0,0,0,0,0,0,0,2],
-            [2,0,0,0,1,-1,0,0,0,2],
-            [2,0,0,0,-1,1,0,0,0,2],
-            [2,0,0,0,0,0,0,0,0,2],
-            [2,0,0,0,0,0,0,0,0,2],
-            [2,0,0,0,0,0,0,0,0,2],
-            [2,2,2,2,2,2,2,2,2,2]
-            ]
+                        [2,0,0,0,0,0,0,0,0,2],
+                        [2,0,0,0,0,0,0,0,0,2],
+                        [2,0,0,0,0,0,0,0,0,2],
+                        [2,0,0,0,1,-1,0,0,0,2],
+                        [2,0,0,0,-1,1,0,0,0,2],
+                        [2,0,0,0,0,0,0,0,0,2],
+                        [2,0,0,0,0,0,0,0,0,2],
+                        [2,0,0,0,0,0,0,0,0,2],
+                        [2,2,2,2,2,2,2,2,2,2]
+                        ]
     
-    def countPiece():
-        global board
+    def countPiece(self):
         whiteCount = 0
         blackCount = 0
-        for i in board:
-            for j in board[i]:
-                if(board[i][j] == 1):
+        for row in self.board:
+            for cell in row:
+                if(cell == 1):
                     whiteCount += 1
-                elif(board[i][j] == -1):
+                elif(cell == -1):
                     blackCount += 1
         return [whiteCount, blackCount]
 
@@ -138,9 +137,21 @@ class Player():
             while board.board[y + i][x - i] == self.side * -1:
                 board.board[y +i ][x - i] *= -1
                 i += 1
+    
+    def countValidCell(self, board):
+        global targetValidation
+        for i in range(len(board.board)):
+            for j in range(len(board.board[i])):
+                if targetValidation(board, j, i):
+                    self.validCellCount += 1
                 
+class game():
+    def __init__(self):
+        
+
 @app.route("/", method=['GET', 'POST'])
 def main():
+    game()
 
 
 
