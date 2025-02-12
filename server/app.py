@@ -82,8 +82,14 @@ class Player():
         flipList.append = countFlipPieces(board, x, y, -1, 1)
         return flipList
 
-    #Check if the target
-    def targetValidation():
+    #Check if the target. The target has to be empty and has at least 1 piece to be flipped
+    def targetValidation(board, x, y):
+        global getFlipList
+        if(board.board[y][x] == 0 and (0 not in getFlipList(board, x, y))):
+            return True
+        else:
+            return False
+        
 
 @app.route("/", method=['GET', 'POST'])
 def main():
