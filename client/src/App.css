@@ -26,8 +26,17 @@ body{
   text-align: center;
 }
 
+.board{
+  max-width: 60%;
+  height: auto;
+  aspect-ratio: 1/1;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+}
+
 .cell{
-  width: 100px;
-  height: 100px;
-  background-color: aqua;
+  margin: 0;
+  padding: 0;
+  border: 2px solid #000000;
+  background-color: #485d3f;
 }
