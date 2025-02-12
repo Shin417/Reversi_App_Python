@@ -17,9 +17,21 @@ board = [[2,2,2,2,2,2,2,2,2,2],
          [2,2,2,2,2,2,2,2,2,2]
          ]
 
+def countPiece():
+    whiteCount = 0
+    blackCount = 0
+    for i in board:
+        for j in board[i]:
+            if(board[i][j] == 1):
+                whiteCount += 1
+            elif(board[i][j] == -1):
+                blackCount += 1
+    return [whiteCount, blackCount]
 
 
-@app.route("/")
+
+
+@app.route("/", method=['GET', 'POST'])
 def main():
 
 
