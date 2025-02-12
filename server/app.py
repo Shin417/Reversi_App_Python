@@ -146,13 +146,11 @@ class Player():
                     validCellCount += 1
         return validCellCount
     
-class game():
-    def __init__(self):
-        
+
+
 
 @app.route("/", method=['GET', 'POST'])
 def main():
-    game()
 
 
 
