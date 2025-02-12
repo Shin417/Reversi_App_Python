@@ -149,12 +149,8 @@ class Player():
 
 
 
-@app.route("/", method=['GET', 'POST'])
+@app.route("/", methods=['GET'])
 def main():
-
-
-
-
     return "Hello"
 
 if __name__ == "__main__":
