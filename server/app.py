@@ -59,15 +59,16 @@ class Player():
             return a - b
 
     def countFlipPieces(board, x, y, direX, direY):
-        global side
+        global side, xOpe, yOpe
         #opponent side value
         oppSide = side * -1
-        #check up direction
-        
-
-
-
-
+        i = 1
+        count = 0
+        while board.board[yOpe(direY, y, i)][xOpe(direX, x, i)] == oppSide:
+            count += 1
+            i += 1
+        return count
+    
 
 @app.route("/", method=['GET', 'POST'])
 def main():
