@@ -1,24 +1,23 @@
 import axios from "axios";
-import { useState, useEffect} from "react";
-import Piece from './Piece';
+import { useState, useEffect } from "react";
+import Piece from "./Piece";
 
 export default function Cell(props) {
   const [color, setColor] = useState();
-
-
+  
 
   const getInfo = async () => {
     const response = await axios.get("http://localhost:8080/");
-    setColor(response.data)
+    setColor(response.data);
   };
 
   useEffect(() => {
     getInfo();
-  })
+  });
 
   return (
     <div className="cell" onClick={getInfo}>
-      <Piece color={color}/>
+      <Piece color={color} />
     </div>
   );
 }

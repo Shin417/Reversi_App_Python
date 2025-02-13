@@ -14,8 +14,10 @@ function App() {
       <Header/>
       <section className="main-section">
         <div className="board">
-          {Array.from({ length:64}).map((_,index) => (
-            <Cell key={index}></Cell>
+          {tempArray.map((row, i) => (
+            row.map((element, j) => (
+              <Cell  key={" " + i + j}></Cell>
+            ))
           ))}
         </div>
       </section>
