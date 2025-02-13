@@ -147,7 +147,7 @@ class Player():
         return validCellCount
     
 def test():
-    return '-1'
+    return '1'
 
 
 @app.route("/", methods=['GET'])

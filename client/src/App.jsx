@@ -5,9 +5,10 @@ import axios from "axios";
 import Cell from "./components/Cell.jsx";
 
 function App() {
-  const [hello, setHello] = useState();
 
-
+ const tempArray = new Array(8).fill().map(() => new Array(8).fill(0));
+ 
+ 
   return (
     <>
       <Header/>
