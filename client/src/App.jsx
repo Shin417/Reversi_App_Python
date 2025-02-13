@@ -6,7 +6,7 @@ import Cell from "./components/Cell.jsx";
 
 function App() {
 
- const tempArray = new Array(8).fill().map(() => new Array(8).fill(0));
+ const tempArray = Array(8).fill().map(() => Array(8).fill(0));
  
  
   return (
@@ -16,7 +16,7 @@ function App() {
         <div className="board">
           {tempArray.map((row, i) => (
             row.map((element, j) => (
-              <Cell  key={" " + i + j}></Cell>
+              <Cell  key={" " + i + j} x={j} y={i}></Cell>
             ))
           ))}
         </div>

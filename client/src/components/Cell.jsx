@@ -4,7 +4,8 @@ import Piece from "./Piece";
 
 export default function Cell(props) {
   const [color, setColor] = useState();
-  
+  const x = props.x;
+  const y = props.y;
 
   const getInfo = async () => {
     const response = await axios.get("http://localhost:8080/");
@@ -14,9 +15,9 @@ export default function Cell(props) {
   useEffect(() => {
     getInfo();
   });
-
+  
   return (
-    <div className="cell" onClick={getInfo}>
+    <div className="cell" x={props} y={props} onClick={getInfo}>
       <Piece color={color} />
     </div>
   );
